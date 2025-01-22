@@ -6,8 +6,8 @@
 }
  :root {
 	 --hue: 223;
-	 --bg: #300303;
-	 --fg: #fccfcf;
+	 --bg: #000000;
+	 --fg: #8a7f7f;
 	 font-size: clamp(1rem, 1.2rem, 1.25rem);
 }
  body {
@@ -18,9 +18,9 @@
 	 height: 100vh;
 }
  .pl {
-	 --dur: 2s;
+	 --dur: 5s;
 	 animation-name: spin;
-	 animation-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+	 animation-timing-function: cubic-bezier(0.35, 1, 0.35, 1);
 	 margin: auto;
 	 position: relative;
 	 width: 10.5em;
@@ -41,8 +41,8 @@
 }
  .pl__dot-layer {
 	 animation-name: scale-down-1;
-	 animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-	 background-color: #f42f25;
+	 animation-timing-function: cubic-bezier(0.55, 1, 0.15, 3);
+	 background-color: #f4259e;
 	 border-radius: 50%;
 	 mix-blend-mode: screen;
 	 width: 100%;
