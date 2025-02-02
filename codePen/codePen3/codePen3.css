@@ -34,9 +34,9 @@
     --size: 300px;
     --radius: 32;
     --padding: 64px;
-    --bg: hsl(180 0% 33%);
-    --bar: hsl(0 0% 100% / 0.5);
-    --panel: hsl(20 60% 50%);
+    --bg: hsl(180, 0%, 33%);
+    --bar: hsla(0, 0%, 100%, 0.5);
+    --panel: hsl(20, 60%, 50%);
     timeline-scope: --scroller;
   }
   /**
@@ -111,6 +111,7 @@
       #0000 calc((1 - var(--bar-alpha, 0.5)) * 100%)
     );
     stroke-dasharray: var(--thumb-size) var(--track-length);
+    stroke-linecap: round;
   }
 
   @supports (animation-timeline: scroll()) {
