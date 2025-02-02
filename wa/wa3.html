@@ -28,35 +28,35 @@
 </head>
 <body>
     <nav>
-        <strong>&nbspNavigation</strong>
+        <strong>&nbsp;Navigation</strong>
         <ul>
             <li><a href="#History">History</a></li>
             <li><a href="#Design">Design</a></li>
             <li><a href="#Types">Types</a>
                 <ul>
-                    <li><a href="#2D Shaders">2D</a>
+                    <li><a href="#2DShaders">2D</a>
                         <ul>
-                            <li><a href="#Pixel Shaders">Pixel</a></li>
+                            <li><a href="#PixelShaders">Pixel</a></li>
                         </ul>
                     </li>
-                    <li><a href="#3D Shaders">3D</a>
+                    <li><a href="#3DShaders">3D</a>
                         <ul>
-                            <li><a href="#Vertex Shaders">Vertex</a></li>
-                            <li><a href="#Geometry Shaders">Geometry</a></li>
-                            <li><a href="#Tessellation Shaders">Tessellation</a></li>
-                            <li><a href="#Primitive and Mesh Shaders">Primitive and<br>Mesh</a></li>
+                            <li><a href="#VertexShaders">Vertex</a></li>
+                            <li><a href="#GeometryShaders">Geometry</a></li>
+                            <li><a href="#TessellationShaders">Tessellation</a></li>
+                            <li><a href="#PrimitiveAndMeshShaders">Primitive and<br>Mesh</a></li>
                         </ul>
                     </li>
-                    <li><a href="#Unified Shaders">Unified</a></li>
-                    <li><a href="#Compute Shaders">Compute</a></li>
-                    <li><a href="#Ray Tracing Shaders">Ray Tracing</a></li>
-                    <li><a href="#Tensor Shaders">Tensor</a></li>
+                    <li><a href="#UnifiedShaders">Unified</a></li>
+                    <li><a href="#ComputeShaders">Compute</a></li>
+                    <li><a href="#RayTracingShaders">Ray Tracing</a></li>
+                    <li><a href="#TensorShaders">Tensor</a></li>
                 </ul>
             </li>
-            <li><a href="#Parallel Processing">Parallel Processing</a></li>
+            <li><a href="#ParallelProcessing">Parallel Processing</a></li>
             <li><a href="#Programming">Programming</a>
                 <ul>
-                    <li><a href="#GUI Shader Editors">GUI Shader Editors</a></li>
+                    <li><a href="#GUIShaderEditors">GUI Shader Editors</a></li>
                 </ul>
             </li>
             <li><a href="#Recs">Recommendations</a></li>
@@ -208,14 +208,14 @@
             allows graphics cards to make more efficient use of processing power.
         </p>
 
-        <h3 id="2D Shaders">2D Shaders</h3>
+        <h3 id="2DShaders">2D Shaders</h3>
 
         <p>
             2D shaders act on digital images, also called <em>textures</em> in the field of computer graphics. They modify attributes of pixels. 2D shaders may take part in<br> 
             rendering <a href="https://en.wikipedia.org/wiki/Solid_geometry" target="_blank" rel="noopener noreferrer">3D geometry</a>. Currently the only type of 2D shader is a pixel shader.
         </p>
 
-        <h4 id="Pixel Shaders">Pixel Shaders</h4>
+        <h4 id="PixelShaders">Pixel Shaders</h4>
 
         <p>
             Pixel shaders, also known as <a href="https://en.wikipedia.org/wiki/Fragment_(computer_graphics)" target="_blank" rel="noopener noreferrer">fragment shaders</a>, 
@@ -232,7 +232,7 @@
             instance, a pixel shader is the only kind of shader that can act as a postprocessor or filter for a video stream after it has been <a href="https://en.wikipedia.org/wiki/Rasterisation" target="_blank" rel="noopener noreferrer">rasterized</a>.
         </p>
 
-        <h3 id="3D Shaders">3D Shaders</h3>
+        <h3 id="3DShaders">3D Shaders</h3>
 
         <p>
             3D shaders act on <a href="https://en.wikipedia.org/wiki/3D_modeling" target="_blank" rel="noopener noreferrer">3D models</a> 
@@ -242,7 +242,7 @@
             smaller groups of triangles or other primitives at runtime, to improve things like curves and bumps, or change other attributes.
         </p>
 
-        <h4 id="Vertex Shaders">Vertex Shaders</h4>
+        <h4 id="VertexShaders">Vertex Shaders</h4>
 
         <p>
             Vertex shaders are the most established and common kind of 3D shader and are run once for each vertex given to the graphics processor. The purpose<br> 
@@ -252,7 +252,7 @@
             control over the details of position, movement, lighting, and color in any scene involving 3D models.
         </p>
 
-        <h4 id="Geometry Shaders">Geometry Shaders</h4>
+        <h4 id="GeometryShaders">Geometry Shaders</h4>
 
         <p>
             Geometry shaders were introduced in Direct3D 10 and OpenGL 3.2; formerly available in OpenGL 2.0+ with the use of extensions. This type of shader<br> 
@@ -274,7 +274,7 @@
             generate extra lines each of which provides a better approximation of a curve.
         </p>
 
-        <h4 id="Tessellation Shaders">Tessellation Shaders</h4>
+        <h4 id="TessellationShaders">Tessellation Shaders</h4>
 
         <p>
             As of OpenGL 4.0 and Direct3D 11, a new shader class called a tessellation shader has been added. It adds two new shader stages to the traditional<br> 
@@ -288,7 +288,7 @@
             any arbitrary mesh, while others allow for "hinting" in meshes to dictate the most characteristic vertices and edges.
         </p>
 
-        <h4 id="Primitive and Mesh Shaders">Primitive and Mesh Shaders</h4>
+        <h4 id="PrimitiveAndMeshShaders">Primitive and Mesh Shaders</h4>
 
         <p>
             Circa 2017, the AMD Vega microarchitecture added support for a new shader stage—primitive shaders—somewhat akin to compute shaders with access<br> 
@@ -308,14 +308,14 @@
             2022 will support mesh shaders.
         </p>
 
-        <h3 id="Unified Shaders">Unified Shaders</h3>
+        <h3 id="UnifiedShaders">Unified Shaders</h3>
 
         <p>
             Unified shader is the combination of 2D shader and 3D shader. NVIDIA called "unified shaders" as "CUDA cores"; AMD called this as "shader cores";<br> 
             while Intel called this as "ALU cores".
         </p>
 
-        <h3 id="Compute Shaders">Compute Shaders</h3>
+        <h3 id="ComputeShaders">Compute Shaders</h3>
 
         <p>
             <a href="https://en.wikipedia.org/wiki/Compute_kernel" target="_blank" rel="noopener noreferrer">Compute shaders</a> 
@@ -326,14 +326,14 @@
             data resources with the graphics pipeline.
         </p>
 
-        <h3 id="Ray Tracing Shaders">Ray Tracing Shaders</h3>
+        <h3 id="RayTracingShaders">Ray Tracing Shaders</h3>
 
         <p>
             <a href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" target="_blank" rel="noopener noreferrer">Ray tracing</a> shaders are supported by Microsoft via DirectX Raytracing, by Khronos Group via Vulkan, GLSL, and SPIR-V,[18] by Apple via Metal. NVIDIA<br> 
             and AMD called "ray tracing shaders" as "ray tracing cores".
         </p>
 
-        <h3 id="Tensor Shaders">Tensor Shaders</h3>
+        <h3 id="TensorShaders">Tensor Shaders</h3>
 
         <p>
             Tensor shaders may be integrated in 
@@ -342,7 +342,7 @@
             via Core ML, by Google via TensorFlow, by Linux Foundation via ONNX. NVIDIA and AMD called "tensor shaders" as "tensor cores".
         </p>
 
-        <h2 id="Parallel Processing">Parallel Processing</h2>
+        <h2 id="ParallelProcessing">Parallel Processing</h2>
         <hr>
 
         <p>
@@ -374,7 +374,7 @@
             as part of the <a href="https://en.wikipedia.org/wiki/Metal_(API)" target="_blank" rel="noopener noreferrer">Metal framework</a>.
         </p>
 
-        <h3 id="GUI Shader Editors">GUI Shader Editors</h3>
+        <h3 id="GUIShaderEditors">GUI Shader Editors</h3>
 
         <p>
             Modern video game development platforms such as Unity, Unreal Engine and Godot increasingly include node-based editors that can create shaders<br> 
