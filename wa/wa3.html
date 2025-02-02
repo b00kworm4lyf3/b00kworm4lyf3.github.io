@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="source" content="https://en.wikipedia.org/wiki/Shader">
+    <title>Shaders</title>
+    <style>
+        nav{
+            float:right;
+            margin-top: 40px;
+            margin-right: 20px;
+        }
+        h1, h2{
+            text-align: left;
+        }
+        section{
+            /* clear: left; */
+            float: right;
+            margin-right: 5px;
+            margin-left: 10px;
+        }
+        p{
+            text-align: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <h4>Navigation</h4>
+            
+            <li><a href="#History">History</a></li>
+            <li><a href="#Design">Design</a></li>
+            <li><a href="#Types">Types</a></li>
+            <ul>
+                <li><a href="#2D Shaders">2D</a></li>
+                <ul>
+                    <li><a href="#Pixel Shaders">Pixel</a></li>
+                </ul>
+                <li><a href="#3D Shaders">3D</a></li>
+                <ul>
+                    <li><a href="#Vertex Shaders">Vertex</a></li>
+                    <li><a href="#Geometry Shaders">Geometry</a></li>
+                    <li><a href="#Tessellation Shaders">Tessellation</a></li>
+                    <li><a href="#Primitive and Mesh Shaders">Primitive and<br>Mesh</a></li>
+                </ul>
+                <li><a href="#Unified Shaders">Unified</a></li>
+                <li><a href="#Compute Shaders">Compute</a></li>
+                <li><a href="#Ray Tracing Shaders">Ray Tracing</a></li>
+                <li><a href="#Tensor Shaders">Tensor</a></li>
+            </ul>
+            <li><a href="#Parallel Processing">Parallel Processing</a></li>
+            <li><a href="#Programming">Programming</a></li>
+            <ul>
+                <li><a href="#GUI Shader Editors">GUI Shader Editors</a></li>
+            </ul>
+            <li><a href="#Recs">Recommendations</a></li>
+            <li><a href="#Shaders">Top of Page</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1 id="Shaders">Shaders</h1>
+        <cite>Page Content Source: <a href="https://en.wikipedia.org/wiki/Shader" target="_blank" rel="noopener noreferrer">Wikipedia Shader Article</a></cite>
+        <hr>
+    </header>
+    <main>
+        <section>
+            <a href="https://en.wikipedia.org/wiki/File:Phong-shading-sample_(cropped).jpg" target="_blank" rel="noopener noreferrer">
+                <img src="../img/290px-Phong-shading-sample_(cropped).jpg" alt="Shader Example">
+            </a>
+            <p>
+                An example of two kinds of shadings: <a href="https://en.wikipedia.org/wiki/Shading#Flat_shading" target="_blank" rel="noopener noreferrer">Flat<br>shading</a> 
+                 on the left and <a href="https://en.wikipedia.org/wiki/Phong_shading" target="_blank" rel="noopener noreferrer">Phong shading</a> on the right.<br> 
+                Phong shading is an improvement on <a href="https://en.wikipedia.org/wiki/Gouraud_shading" target="_blank" rel="noopener noreferrer">Gouraud<br>shading</a>
+                , and was one of the first computer shading<br>
+                models developed after the basic flat shader,<br> 
+                greatly enhancing the appearance of curved<br> 
+                surfaces in renders. Shaders are most commonly<br> 
+                used to produce lit and shadowed areas in the<br> 
+                rendering of 3D models.
+            </p>
+        </section>
+
+        <p>
+            In <a href="https://en.wikipedia.org/wiki/Computer_graphics" target="_blank" rel="noopener noreferrer">computer graphics</a>, 
+            a <strong>shader</strong> is a computer program that calculates the appropriate levels of light,<br> 
+            darkness, and color during the <a href="https://en.wikipedia.org/wiki/Rendering_(computer_graphics)" target="_blank" rel="noopener noreferrer">rendering</a> 
+            of a 3D scene—a process known as <a href="https://en.wikipedia.org/wiki/Shading" target="_blank" rel="noopener noreferrer"><em>shading</em></a>. Shaders have<br> 
+            evolved to perform a variety of specialized functions in computer graphics special effects and video<br>
+            post-processing, as well as general-purpose computing on graphics processing units.
+        </p>
+    
+        <p>
+            Traditional shaders calculate rendering effects on graphics hardware with a high degree of flexibility.<br>
+            Most shaders are coded for (and run on) a <a href = "https://en.wikipedia.org/wiki/Graphics_processing_unit" target="_blank" rel="noopener noreferrer">graphics processing unit</a>
+             (GPU), though this is not a<br>
+            strict requirement. <em>Shading languages</em> are used to program the GPU's
+             <a href="https://en.wikipedia.org/wiki/Graphics_pipeline" target="_blank" rel="noopener noreferrer">rendering pipeline</a>, which has<br>
+            mostly superseded the fixed-function pipeline of the past that only allowed for common geometry<br>
+            transforming and pixel-shading functions; with shaders, customized effects can be used. The position<br>
+            and color (hue, saturation, brightness, and contrast) of all pixels, vertices, and/or textures used to<br> 
+            construct a final rendered image can be altered using algorithms defined in a shader, and can be<br> 
+            modified by external variables or textures introduced by the computer program calling the shader.
+        </p>
+        <p>
+             Shaders are used widely in cinema post-processing, computer-generated imagery, and video games<br> 
+             to produce a range of effects. Beyond simple lighting models, more complex uses of shaders include:<br> 
+             altering the hue, saturation, brightness (HSL/HSV) or contrast of an image; producing blur, light<br>
+             bloom, <a href="https://en.wikipedia.org/wiki/Volumetric_lighting" target="_blank" rel="noopener noreferrer">volumetric lighting</a>, 
+             <a href="https://en.wikipedia.org/wiki/Normal_mapping" target="_blank" rel="noopener noreferrer">normal mapping</a> (for depth effects), bokeh, 
+             <a href="https://en.wikipedia.org/wiki/Cel_shading" target="_blank" rel="noopener noreferrer">cel shading</a>, posterization,<br>
+             <a href="https://en.wikipedia.org/wiki/Bump_mapping">bump mapping</a>, distortion, chroma keying (for so-called "bluescreen/greenscreen" effects), edge and<br>
+             motion detection, as well as psychedelic effects such as those seen in the demoscene.<br>
+        </p>
+
+        <section>
+            <a href="https://en.wikipedia.org/wiki/Shader#/media/File:Example_of_a_Shader.png" target="_blank" rel="noopener noreferrer">
+                <img src="../img/Example_of_a_Shader.png" alt="Shader Example">
+            </a>
+            <p>
+                Another use of shaders is for special effects,<br> 
+                even on 2D images, (e.g., a photo from a webcam).<br> 
+                The unaltered, unshaded image is on the left, and<br> 
+                the same image has a shader applied on the right.<br> 
+                This shader works by replacing all light areas of the<br> 
+                image with white, and all dark areas with a brightly<br> 
+                colored texture.
+            </p>
+        </section>
+
+        <h2 id="History">History</h2>
+        <hr>
+
+        <p>
+            This use of the term "shader" was introduced to the public by Pixar with version 3.0 of their<br>
+            <a href="https://en.wikipedia.org/wiki/RenderMan_Interface_Specification" target="_blank" rel="noopener noreferrer">RenderMan Interface</a> 
+            Specification, originally published in May 1988.
+        </p>
+
+        <p>
+            As graphics processing units evolved, major graphics software libraries such as <a href="https://en.wikipedia.org/wiki/OpenGL" target="_blank" rel="noopener noreferrer">OpenGL</a> and<br> 
+            <a href="https://en.wikipedia.org/wiki/Direct3D" target="_blank" rel="noopener noreferrer">Direct3D</a> began to support shaders. 
+            The first shader-capable GPUs only supported pixel shading,<br> 
+            but vertex shaders were quickly introduced once developers realized the power of shaders. The<br> 
+            first video card with a programmable pixel shader was the Nvidia GeForce 3 (NV20), released in 2001.<br> 
+            Geometry shaders were introduced with Direct3D 10 and OpenGL 3.2. Eventually, graphics hardware<br> 
+            evolved toward a <a href="https://en.wikipedia.org/wiki/Unified_shader_model" target="_blank" rel="noopener noreferrer">unified shader model</a>.
+        </p>
+
+        <h2 id="Design">Design</h2>
+        <hr>
+
+        <p>
+            Shaders are simple programs that describe the traits of either a 
+            <a href="https://en.wikipedia.org/wiki/Vertex_(computer_graphics)" target="_blank" rel="noopener noreferrer">vertex</a> or a 
+            <a href="https://en.wikipedia.org/wiki/Pixel" target="_blank" rel="noopener noreferrer">pixel</a>. Vertex shaders describe the attributes (position, 
+            <a href="https://en.wikipedia.org/wiki/Texture_mapping" target="_blank" rel="noopener noreferrer">texture coordinates</a>,<br> 
+            colors, etc.) of a vertex, while pixel shaders describe the traits (color, 
+            <a href="https://en.wikipedia.org/wiki/Z-buffering" target="_blank" rel="noopener noreferrer">z-depth</a> and 
+            <a href="https://en.wikipedia.org/wiki/Alpha_compositing" target="_blank" rel="noopener noreferrer">alpha</a> value) of a pixel. A vertex shader is called for each vertex in a<br> 
+            <a href="https://en.wikipedia.org/wiki/Geometric_primitive" target="_blank" rel="noopener noreferrer">primitive</a> (possibly after 
+            <a href="https://en.wikipedia.org/wiki/Tessellation_(computer_graphics)" target="_blank" rel="noopener noreferrer">tessellation</a>); 
+            thus one vertex in, one (updated) vertex out. Each vertex is then rendered as a series of pixels onto a surface (block<br> 
+            of memory) that will eventually be sent to the screen.
+        </p>
+
+        <p>
+            Shaders replace a section of the graphics hardware typically called the Fixed Function Pipeline (FFP), so-called because it performs 
+            <a href="https://en.wikipedia.org/wiki/Computer_graphics_lighting" target="_blank" rel="noopener noreferrer">lighting</a> and texture<br> 
+            mapping in a hard-coded manner. Shaders provide a programmable alternative to this hard-coded approach.
+        </p>
+
+        <p>
+            The basic graphics pipeline is as follows:
+            <ul>
+                <li>The CPU sends instructions (compiled 
+                    <a href="https://en.wikipedia.org/wiki/Shading_language" target="_blank" rel="noopener noreferrer">shading language</a> programs) 
+                    and geometry data to the graphics processing unit, located on the graphics card.</li>
+                <li>Within the vertex shader, the geometry is transformed.</li>
+                <li>If a geometry shader is in the graphics processing unit and active, some changes of the geometries in the scene are performed.</li>
+                <li>If a tessellation shader is in the graphics processing unit and active, the geometries in the scene can be 
+                    <a href="https://en.wikipedia.org/wiki/Subdivision_surface" target="_blank" rel="noopener noreferrer">subdivided</a>.</li>
+                <li>The calculated geometry is triangulated (subdivided into triangles).</li>
+                <li>Triangles are broken down into fragment quads (one fragment quad is a 2 × 2 fragment primitive).</li>
+                <li>Fragment quads are modified according to the fragment shader.</li>
+                <li>The depth test is performed; fragments that pass will get written to the screen and might get blended into the 
+                    <a href="https://en.wikipedia.org/wiki/Framebuffer" target="_blank" rel="noopener noreferrer">frame buffer</a>.</li>
+            </ul>
+        </p>
+
+        <p>
+            The graphic pipeline uses these steps in order to transform three-dimensional (or two-dimensional) data into useful two-dimensional data for displaying.<br> 
+            In general, this is a large pixel matrix or "frame buffer".
+        </p>
+
+        <h2 id="Types">Types</h2>
+        <hr>
+
+        <p>
+            There are three types of shaders in common use (pixel, vertex, and geometry shaders), with several more recently added. While older graphics cards<br> 
+            utilize separate processing units for each shader type, newer cards feature 
+            <a href="https://en.wikipedia.org/wiki/Unified_shader_model" target="_blank" rel="noopener noreferrer">unified shaders</a> which are capable of executing any type of shader. This<br> 
+            allows graphics cards to make more efficient use of processing power.
+        </p>
+
+        <h3 id="2D Shaders">2D Shaders</h3>
+
+        <p>
+            2D shaders act on digital images, also called <em>textures</em> in the field of computer graphics. They modify attributes of pixels. 2D shaders may take part in<br> 
+            rendering <a href="https://en.wikipedia.org/wiki/Solid_geometry" target="_blank" rel="noopener noreferrer">3D geometry</a>. Currently the only type of 2D shader is a pixel shader.
+        </p>
+
+        <h4 id="Pixel Shaders">Pixel Shaders</h4>
+
+        <p>
+            Pixel shaders, also known as <a href="https://en.wikipedia.org/wiki/Fragment_(computer_graphics)" target="_blank" rel="noopener noreferrer">fragment shaders</a>, 
+            compute color and other attributes of each "fragment": a unit of rendering work affecting at most a single<br> 
+            output pixel. The simplest kinds of pixel shaders output one screen pixel as a color value; more complex shaders with multiple inputs/outputs are also<br> 
+            possible. Pixel shaders range from simply always outputting the same color, to applying a lighting value, to doing bump mapping, shadows, 
+            <a href="https://en.wikipedia.org/wiki/Specular_highlight" target="_blank" rel="noopener noreferrer">specular<br>highlights</a>, translucency and other phenomena. They can alter the depth of the fragment (for Z-buffering), or output more than one color if multiple render<br> 
+            targets are active. In 3D graphics, a pixel shader alone cannot produce some kinds of complex effects because it operates only on a single fragment,<br> 
+            without knowledge of a scene's geometry (i.e. vertex data). However, pixel shaders do have knowledge of the screen coordinate being drawn, and can<br> 
+            sample the screen and nearby pixels if the contents of the entire screen are passed as a texture to the shader. This technique can enable a wide variety<br> 
+            of two-dimensional postprocessing effects such as blur, or edge detection/enhancement for cartoon/cel shaders. Pixel shaders may also be applied in<br> 
+            <em>intermediate</em> stages to any two-dimensional images—
+            <a href="https://en.wikipedia.org/wiki/Sprite_(computer_graphics)" target="_blank" rel="noopener noreferrer">sprites</a> or textures—in the pipeline, whereas vertex shaders always require a 3D scene. For<br> 
+            instance, a pixel shader is the only kind of shader that can act as a postprocessor or filter for a video stream after it has been <a href="https://en.wikipedia.org/wiki/Rasterisation" target="_blank" rel="noopener noreferrer">rasterized</a>.
+        </p>
+
+        <h3 id="3D Shaders">3D Shaders</h3>
+
+        <p>
+            3D shaders act on <a href="https://en.wikipedia.org/wiki/3D_modeling" target="_blank" rel="noopener noreferrer">3D models</a> 
+            or other geometry but may also access the colors and textures used to draw the model or <a href="https://en.wikipedia.org/wiki/Polygon_mesh" target="_blank" rel="noopener noreferrer">mesh</a>. Vertex shaders are the<br> 
+            oldest type of 3D shader, generally making modifications on a per-vertex basis. Newer geometry shaders can generate new vertices from within the<br> 
+            shader. Tessellation shaders are the newest 3D shaders; they act on batches of vertices all at once to add detail—such as subdividing a model into<br> 
+            smaller groups of triangles or other primitives at runtime, to improve things like curves and bumps, or change other attributes.
+        </p>
+
+        <h4 id="Vertex Shaders">Vertex Shaders</h4>
+
+        <p>
+            Vertex shaders are the most established and common kind of 3D shader and are run once for each vertex given to the graphics processor. The purpose<br> 
+            is to transform each vertex's 3D position in virtual space to the 2D coordinate at which it appears on the screen (as well as a depth value for the Z-<br>
+            buffer). Vertex shaders can manipulate properties such as position, color and texture coordinates, but cannot create new vertices. The output of the<br> 
+            vertex shader goes to the next stage in the pipeline, which is either a geometry shader if present, or the rasterizer. Vertex shaders can enable powerful<br> 
+            control over the details of position, movement, lighting, and color in any scene involving 3D models.
+        </p>
+
+        <h4 id="Geometry Shaders">Geometry Shaders</h4>
+
+        <p>
+            Geometry shaders were introduced in Direct3D 10 and OpenGL 3.2; formerly available in OpenGL 2.0+ with the use of extensions. This type of shader<br> 
+            can generate new graphics primitives, such as points, lines, and triangles, from those primitives that were sent to the beginning of the graphics pipeline.
+        </p>
+
+        <p>
+            Geometry shader programs are executed after vertex shaders. They take as input a whole primitive, possibly with adjacency information. For example,<br> 
+            when operating on triangles, the three vertices are the geometry shader's input. The shader can then emit zero or more primitives, which are rasterized<br> 
+            and their fragments ultimately passed to a pixel shader.
+        </p>
+
+        <p>
+            Typical uses of a geometry shader include point sprite generation, geometry tessellation, 
+            <a href="https://en.wikipedia.org/wiki/Shadow_volume" target="_blank" rel="noopener noreferrer">shadow volume</a> extrusion, and single pass rendering to a 
+            <a href="https://en.wikipedia.org/wiki/Cube_mapping" target="_blank" rel="noopener noreferrer">cube<br>map</a>. 
+            A typical real-world example of the benefits of geometry shaders would be automatic mesh complexity modification. A series of line strips<br> 
+            representing control points for a curve are passed to the geometry shader and depending on the complexity required the shader can automatically<br> 
+            generate extra lines each of which provides a better approximation of a curve.
+        </p>
+
+        <h4 id="Tessellation Shaders">Tessellation Shaders</h4>
+
+        <p>
+            As of OpenGL 4.0 and Direct3D 11, a new shader class called a tessellation shader has been added. It adds two new shader stages to the traditional<br> 
+            model: tessellation control shaders (also known as hull shaders) and tessellation evaluation shaders (also known as Domain Shaders), which together<br> 
+            allow for simpler meshes to be subdivided into finer meshes at run-time according to a mathematical function. The function can be related to a variety of<br> 
+            variables, most notably the distance from the viewing camera to allow active 
+            <a href="https://en.wikipedia.org/wiki/Level_of_detail_(computer_graphics)" target="_blank" rel="noopener noreferrer">level-of-detail</a> scaling. 
+            This allows objects close to the camera to have fine<br> 
+            detail, while further away ones can have more coarse meshes, yet seem comparable in quality. It also can drastically reduce required mesh bandwidth by<br> 
+            allowing meshes to be refined once inside the shader units instead of downsampling very complex ones from memory. Some algorithms can upsample<br> 
+            any arbitrary mesh, while others allow for "hinting" in meshes to dictate the most characteristic vertices and edges.
+        </p>
+
+        <h4 id="Primitive and Mesh Shaders">Primitive and Mesh Shaders</h4>
+
+        <p>
+            Circa 2017, the AMD Vega microarchitecture added support for a new shader stage—primitive shaders—somewhat akin to compute shaders with access<br> 
+            to the data necessary to process geometry.
+        </p>
+
+        <p>
+            Nvidia introduced mesh and task shaders with its Turing microarchitecture in 2018 which are also modelled after compute shaders. Nvidia Turing is<br> 
+            the world's first GPU microarchitecture that supports mesh shading through DirectX 12 Ultimate API, several months before Ampere RTX 30 series<br> 
+            was released.
+        </p>
+
+        <p>
+            In 2020, AMD and Nvidia released RDNA 2 and Ampere microarchitectures which both support mesh shading through DirectX 12 Ultimate. These<br> 
+            mesh shaders allow the GPU to handle more complex algorithms, offloading more work from the CPU to the GPU, and in algorithm intense rendering,<br> 
+            increasing the frame rate of or number of triangles in a scene by an order of magnitude. Intel announced that Intel Arc Alchemist GPUs shipping in Q1<br> 
+            2022 will support mesh shaders.
+        </p>
+
+        <h3 id="Unified Shaders">Unified Shaders</h3>
+
+        <p>
+            Unified shader is the combination of 2D shader and 3D shader. NVIDIA called "unified shaders" as "CUDA cores"; AMD called this as "shader cores";<br> 
+            while Intel called this as "ALU cores".
+        </p>
+
+        <h3 id="Compute Shaders">Compute Shaders</h3>
+
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Compute_kernel" target="_blank" rel="noopener noreferrer">Compute shaders</a> 
+            are not limited to graphics applications, but use the same execution resources for 
+            <a href="https://en.wikipedia.org/wiki/General-purpose_computing_on_graphics_processing_units" target="_blank" rel="noopener noreferrer">GPGPU</a>. 
+            They may be used in graphics pipelines<br> 
+            e.g. for additional stages in animation or lighting algorithms (e.g. tiled forward rendering). Some rendering APIs allow compute shaders to easily share<br> 
+            data resources with the graphics pipeline.
+        </p>
+
+        <h3 id="Ray Tracing Shaders">Ray Tracing Shaders</h3>
+
+        <p>
+            <a href="https://en.wikipedia.org/wiki/Ray_tracing_(graphics)" target="_blank" rel="noopener noreferrer">Ray tracing</a> shaders are supported by Microsoft via DirectX Raytracing, by Khronos Group via Vulkan, GLSL, and SPIR-V,[18] by Apple via Metal. NVIDIA<br> 
+            and AMD called "ray tracing shaders" as "ray tracing cores".
+        </p>
+
+        <h3 id="Tensor Shaders">Tensor Shaders</h3>
+
+        <p>
+            Tensor shaders may be integrated in 
+            <a href="https://en.wikipedia.org/wiki/AI_accelerator" target="_blank" rel="noopener noreferrer">NPUs</a> or GPUs. 
+            Tensor shaders are supported by Microsoft via DirectML, by Khronos Group via OpenVX, by Apple<br> 
+            via Core ML, by Google via TensorFlow, by Linux Foundation via ONNX. NVIDIA and AMD called "tensor shaders" as "tensor cores".
+        </p>
+
+        <h2 id="Parallel Processing">Parallel Processing</h2>
+        <hr>
+
+        <p>
+            Shaders are written to apply transformations to a large set of elements at a time, for example, to each pixel in an area of the screen, or for every vertex of<br> 
+            a model. This is well suited to 
+            <a href="https://en.wikipedia.org/wiki/Parallel_computing" target="_blank" rel="noopener noreferrer">parallel processing</a>, 
+            and most modern GPUs have multiple shader pipelines to facilitate this, vastly improving computation<br> 
+            throughput.
+        </p>
+
+        <p>
+            A programming model with shaders is similar to a higher order function for rendering, taking the shaders as arguments, and providing a specific dataflow<br> 
+            between intermediate results, enabling both data parallelism (across pixels, vertices etc.) and pipeline parallelism (between stages).
+        </p>
+
+        <h2 id="Programming">Programming</h2>
+        <hr>
+
+        <p>
+            The language in which shaders are programmed depends on the target environment. The official OpenGL and OpenGL ES shading language is 
+            <a href="https://en.wikipedia.org/wiki/OpenGL_Shading_Language" target="_blank" rel="noopener noreferrer">OpenGL<br>Shading Language</a>, 
+            also known as GLSL, and the official Direct3D shading language is 
+            <a href="https://en.wikipedia.org/wiki/High-Level_Shader_Language" target="_blank" rel="noopener noreferrer">High Level Shader Language</a>, 
+            also known as HLSL. 
+            <a href="https://en.wikipedia.org/wiki/Cg_(programming_language)" target="_blank" rel="noopener noreferrer">Cg</a>, a third-<br>
+            party shading language which outputs both OpenGL and Direct3D shaders, was developed by Nvidia; however since 2012 it has been deprecated. Apple<br> 
+            released its own shading language called 
+            <a href="https://en.wikipedia.org/wiki/Shading_language#Metal_Shading_Language" target="_blank" rel="noopener noreferrer">Metal Shading Language</a> 
+            as part of the <a href="https://en.wikipedia.org/wiki/Metal_(API)" target="_blank" rel="noopener noreferrer">Metal framework</a>.
+        </p>
+
+        <h3 id="GUI Shader Editors">GUI Shader Editors</h3>
+
+        <p>
+            Modern video game development platforms such as Unity, Unreal Engine and Godot increasingly include node-based editors that can create shaders<br> 
+            without the need for actual code; the user is instead presented with a directed graph of connected nodes that allow users to direct various textures,<br> 
+            maps, and mathematical functions into output values like the diffuse color, the specular color and intensity, roughness/metalness, height, normal, and so<br> 
+            on. Automatic compilation then turns the graph into an actual, compiled shader.
+        </p>
+    </main>
+
+    <footer>
+        <hr>
+        <h3 id="Recs">If you read this much about shaders, you might also enjoy:</h3>
+        <p>
+            This article about <a href="https://jarah-marshall.github.io/wa/wa3.html" target="_blank" rel="noopener noreferrer">jazz</a>, the psychedelic
+            existence of the <a href="https://lewo4677.github.io/wa/wa3.html" target="_blank" rel="noopener noreferrer">mantis shrimp</a>, or maybe the
+            <a href="http://lemonsjake.github.io/ATLS2200-Web-S25/wa/wa3.html" target="_blank" rel="noopener noreferrer">solarpunk</a> movement.
+        </p>
+    </footer>
+    
+    
+</body>
+</html>
