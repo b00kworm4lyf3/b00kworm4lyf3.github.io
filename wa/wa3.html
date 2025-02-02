@@ -14,7 +14,7 @@
         h1, h2{
             text-align: left;
         }
-        section{
+        div{
             /* clear: left; */
             float: right;
             margin-right: 5px;
@@ -69,7 +69,7 @@
         <hr>
     </header>
     <main>
-        <section>
+        <div>
             <a href="https://en.wikipedia.org/wiki/File:Phong-shading-sample_(cropped).jpg" target="_blank" rel="noopener noreferrer">
                 <img src="../img/290px-Phong-shading-sample_(cropped).jpg" alt="Shader Example">
             </a>
@@ -84,7 +84,7 @@
                 used to produce lit and shadowed areas in the<br> 
                 rendering of 3D models.
             </p>
-        </section>
+        </div>
 
         <p>
             In <a href="https://en.wikipedia.org/wiki/Computer_graphics" target="_blank" rel="noopener noreferrer">computer graphics</a>, 
@@ -118,7 +118,7 @@
              motion detection, as well as psychedelic effects such as those seen in the demoscene.<br>
         </p>
 
-        <section>
+        <div>
             <a href="https://en.wikipedia.org/wiki/Shader#/media/File:Example_of_a_Shader.png" target="_blank" rel="noopener noreferrer">
                 <img src="../img/Example_of_a_Shader.png" alt="Shader Example">
             </a>
@@ -131,7 +131,7 @@
                 image with white, and all dark areas with a brightly<br> 
                 colored texture.
             </p>
-        </section>
+        </div>
 
         <h2 id="History">History</h2>
         <hr>
@@ -177,21 +177,21 @@
 
         <p>
             The basic graphics pipeline is as follows:
-            <ul>
-                <li>The CPU sends instructions (compiled 
-                    <a href="https://en.wikipedia.org/wiki/Shading_language" target="_blank" rel="noopener noreferrer">shading language</a> programs) 
-                    and geometry data to the graphics processing unit, located on the graphics card.</li>
-                <li>Within the vertex shader, the geometry is transformed.</li>
-                <li>If a geometry shader is in the graphics processing unit and active, some changes of the geometries in the scene are performed.</li>
-                <li>If a tessellation shader is in the graphics processing unit and active, the geometries in the scene can be 
-                    <a href="https://en.wikipedia.org/wiki/Subdivision_surface" target="_blank" rel="noopener noreferrer">subdivided</a>.</li>
-                <li>The calculated geometry is triangulated (subdivided into triangles).</li>
-                <li>Triangles are broken down into fragment quads (one fragment quad is a 2 × 2 fragment primitive).</li>
-                <li>Fragment quads are modified according to the fragment shader.</li>
-                <li>The depth test is performed; fragments that pass will get written to the screen and might get blended into the 
-                    <a href="https://en.wikipedia.org/wiki/Framebuffer" target="_blank" rel="noopener noreferrer">frame buffer</a>.</li>
-            </ul>
         </p>
+        <ul>
+            <li>The CPU sends instructions (compiled 
+                <a href="https://en.wikipedia.org/wiki/Shading_language" target="_blank" rel="noopener noreferrer">shading language</a> programs) 
+                and geometry data to the graphics processing unit, located on the graphics card.</li>
+            <li>Within the vertex shader, the geometry is transformed.</li>
+            <li>If a geometry shader is in the graphics processing unit and active, some changes of the geometries in the scene are performed.</li>
+            <li>If a tessellation shader is in the graphics processing unit and active, the geometries in the scene can be 
+                <a href="https://en.wikipedia.org/wiki/Subdivision_surface" target="_blank" rel="noopener noreferrer">subdivided</a>.</li>
+            <li>The calculated geometry is triangulated (subdivided into triangles).</li>
+            <li>Triangles are broken down into fragment quads (one fragment quad is a 2 × 2 fragment primitive).</li>
+            <li>Fragment quads are modified according to the fragment shader.</li>
+            <li>The depth test is performed; fragments that pass will get written to the screen and might get blended into the 
+                <a href="https://en.wikipedia.org/wiki/Framebuffer" target="_blank" rel="noopener noreferrer">frame buffer</a>.</li>
+        </ul>
 
         <p>
             The graphic pipeline uses these steps in order to transform three-dimensional (or two-dimensional) data into useful two-dimensional data for displaying.<br> 
