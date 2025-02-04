@@ -22,7 +22,6 @@ body {
   h2 {
     font-size: 1.5em;
     font-style: italic;
-
   }
 
   .job-title {
@@ -37,4 +36,5 @@ body {
 
   a:hover {
     color: green;
+    text-decoration: none;
   }
