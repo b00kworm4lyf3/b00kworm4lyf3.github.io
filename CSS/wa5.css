@@ -1,0 +1,27 @@
+body{
+    width: 90vw;
+    height: 90vh;
+    margin: 20px auto;
+    position: relative, fixed;
+    background-image: url('../img/cartoon-network-tennis-club-logo-wider.png'),
+                      url('../img/kuroMeloScoreSmaller.png'),
+                      url('../img/kuroMeloTennis.jpeg');
+    background-position: right 48% top 5%,
+                         left 48% bottom 5%,
+                         center center;
+    background-repeat: no-repeat;
+    background-size: auto 15vh, auto 15vh, auto 90vh;
+}
+/* article{
+    position: absolute;
+    top: 3%;
+    right: 24%;
+    width: 20em;
+    max-width: 23%;
+    height: 0;
+    padding-top: 15%;
+    background:  no-repeat top right;
+    background-size: contain;
+    /* padding-top: 5em; */
+    /* padding-left: 50em; 
+} */
