@@ -367,10 +367,20 @@ const elements = {
       settings.targetToy.move({
         moveKey: 'y',
         target: machineHeight - settings.targetToy.h - 30,
-        moveTime: 50,
+        moveTime: 20,
       })
       ;[vertRail, armJoint, arm].forEach(obj => (obj.moveWith[0] = null))
+    
+
+    // Add shake effect
+    setTimeout(() => {
+        elements.clawMachine.classList.add('shake-effect')
+        setTimeout(() => {
+          elements.clawMachine.classList.remove('shake-effect')
+        }, 300)
+      }, 600) // delay to make sure toy has landed
     }
+  
     setTimeout(() => {
       arm.el.classList.remove('open')
       activateHoriBtn()
