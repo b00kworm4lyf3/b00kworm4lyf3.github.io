@@ -8,9 +8,9 @@ body {
   padding: 0;
   margin: 0;
   font-family: sans-serif;
-  background-color: #84dfe2;
-  --brown: #57280f;
-  --blue: #33a5da;
+  background-color: #aae284;
+  --brown: #000000;
+  --blue: #92da33;
   --dark-blue: #3a94b7;
   --machine-color: #32c2db;
   --machine-width: 160px;
@@ -161,12 +161,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #70f7f372;
+  background-color: #87a34672;
 }
 
 .machine-bottom {
   bottom: 0;
-  background-color: #def7f6;
+  background-color: #def7de;
 }
 
 .collection-point {
@@ -214,7 +214,7 @@ body {
 .arm-joint::after {
   position: absolute;
   border: solid var(--blue) 2px;
-  background-color: #fff;
+  background-color: #828282;
   --w: 10px;
   --h: 10px;
   top: calc(var(--m) * var(--h) * -0.25);
