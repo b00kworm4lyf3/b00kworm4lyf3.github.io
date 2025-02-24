@@ -564,7 +564,7 @@ a:hover {
 }
 
 /* screen shake! */
-@keyframes screenShake {
+@keyframes screen-shake {
     0%, 100% { transform: translate(0, 0); }
     25% { transform: translate(-5px, 5px); }
     50% { transform: translate(5px, -5px); }
@@ -572,6 +572,6 @@ a:hover {
   }
   
   .shake-effect {
-    animation: screenShake 0.3s ease-in-out;
+    animation: screen-shake 0.3s ease-in-out;
   }
   
