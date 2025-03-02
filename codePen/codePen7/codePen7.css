@@ -1,0 +1,105 @@
+* {
+	margin: 0;
+}
+body {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+}
+/* CONTAINS BOTH IMAGES */
+.effect {
+	max-width: 80vmin;
+	max-height: 80vmin;
+	position: relative;
+
+	img {
+		max-width: 100%;
+		height: min-content;
+	}
+}
+
+@property --effectPos {
+	syntax: "<percentage>";
+	inherits: false;
+	initial-value: 50%;
+}
+
+.filtered {
+	position: absolute;
+	top:0;
+	left: 0px;
+	filter: blur(3px) contrast(2) hue-rotate(130deg);
+	
+/* 	HEIGHT OF THE REGION WHERE THE EFFECT TAKES PLACE */
+	--height: 5%;
+/* 	HEIGHT OF THE FALLOFF TOWARDS THE EFFECT NOT TAKING PLACE */
+	--falloff: 10%;
+/* 	TOTAL HEIGHT OF BOTH */
+	--total: calc(var(--height) + var(--falloff));
+
+/* 	STARTING POINT */
+	--start: calc(var(--total) * -1);
+/* 	END POINT */
+	--end: calc( 100% + var(--total));
+	
+	-webkit-mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	animation: maskingSlide 7s infinite;
+    animation-delay: 3s;
+}
+
+.filteredSecond{
+    position: absolute;
+	top:0;
+	left: 0px;
+	filter: blur(2px) contrast(2) hue-rotate(90deg);
+	
+/* 	HEIGHT OF THE REGION WHERE THE EFFECT TAKES PLACE */
+	--height: 0%;
+/* 	HEIGHT OF THE FALLOFF TOWARDS THE EFFECT NOT TAKING PLACE */
+	--falloff: 2%;
+/* 	TOTAL HEIGHT OF BOTH */
+	--total: calc(var(--height) + var(--falloff));
+
+/* 	STARTING POINT */
+	--start: calc(var(--total) * -1);
+/* 	END POINT */
+	--end: calc( 100% + var(--total));
+	
+	-webkit-mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	mask-image: linear-gradient(
+		rgba(0, 0, 0, 0) calc(var(--effectPos) - var(--total)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) - var(--height)),
+		rgba(0, 0, 0, 1) calc(var(--effectPos) + var(--height)),
+		rgba(0, 0, 0, 0) calc(var(--effectPos) + var(--total))
+	);
+	animation: maskingSlide 3s infinite linear;
+    width: 110%;
+}
+
+@keyframes maskingSlide {
+	0% {
+		--effectPos: var(--start);
+	}
+	95% {
+		--effectPos: var(--end);
+	}
+	100% {
+		--effectPos: var(--end);
+	}
+}
