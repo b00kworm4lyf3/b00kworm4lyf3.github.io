@@ -1,0 +1,66 @@
+*{
+    font-family: 'Space Grotesk', sans-serif;
+    background-color: black;
+}
+
+body {
+    color: #F3F1ED;
+    padding: 1em;
+}
+
+h1{
+    
+}
+
+h2{
+
+}
+
+h3{
+    text-decoration: double underline #FF6100;
+    text-underline-offset: 0.3em;
+}
+
+.concertContainer{
+    margin: 0.5em;
+    padding: 1em;
+    border: 1px solid #FF6100;
+}
+
+.concertBlock{
+    /* margin: 1em;
+    padding: 2em; */
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.infoBlock{
+    display: flex;
+    flex-direction: column;
+    font-size: smaller;
+    width: 35vw;
+    margin: 0.5em;
+    padding-top: 2em;
+    padding-left: 2em;
+    padding-right: 1em;
+    box-shadow: #FF6100 1px 2px 1px;
+    
+}
+
+.conductor{
+    /* text-shadow: #FF6100 1px 1px 1px; */
+}
+
+.repertoire{
+
+}
+
+.location{
+
+}
+
+.description{
+    width: 60vw;
+    padding: 1em;
+}
