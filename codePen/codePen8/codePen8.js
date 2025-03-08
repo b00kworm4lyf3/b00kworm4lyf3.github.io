@@ -45,11 +45,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create stops
         const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-        stop1.setAttribute('stop-color', colors[0]); // First color
+        stop1.setAttribute('stop-color', colors[1]); // First color
         
         const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
-        stop2.setAttribute('stop-color', colors[1]); // Second color
-        stop2.setAttribute('offset', '.5');
+        stop2.setAttribute('stop-color', colors[0]); // Second color
+        stop2.setAttribute('offset', '.2');
         
         const stop3 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
         stop3.setAttribute('offset', '1');
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create circle
         const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-        circle.setAttribute('r', '50%');  // Set radius
+        circle.setAttribute('r', '55%');  // Set radius
         circle.setAttribute('fill', `url(#g${i})`);
         // Add data-filter attribute to match a modified CSS selector
         circle.setAttribute('data-filter', 'active'); 

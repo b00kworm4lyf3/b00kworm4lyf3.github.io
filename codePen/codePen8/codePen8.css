@@ -69,6 +69,6 @@ svg {
 stop[offset='1'] { stop-color: RGB(from var(--c) r g b/ 0) }
 
 [data-filter="active"] {
-	filter: blur(8cqi) 
+	filter: blur(2cqi) 
 		url(#distort) url(#grain);
 }
