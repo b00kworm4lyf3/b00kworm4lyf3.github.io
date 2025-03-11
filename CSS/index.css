@@ -53,6 +53,10 @@ h3{
     box-shadow: #73ccf285 0px 0px 15px; 
 }
 
+.glowText{
+    text-shadow: #73cbf2 0px 0px 10px;
+}
+
 time{
     margin: 0.5em;
 }
