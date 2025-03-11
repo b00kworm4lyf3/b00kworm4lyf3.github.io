@@ -5,8 +5,6 @@
 
 body {
     color: #F3F1ED;
-    padding-left: 5em;
-    padding-right: 5em;
 }
 
 h1{
@@ -14,8 +12,7 @@ h1{
     top: 0;
     text-align: right;
     margin: 0;
-    font-size: 2.9vw;
-    height: 8vh;
+    font-size: 4vw;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     text-shadow: #73cbf2 20px 10px 10px;
 }
@@ -28,7 +25,7 @@ h2{
 h3{
     text-decoration: double underline #FF6100;
     text-underline-offset: 0.3em;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
 }
 
 .concertContainer{
@@ -43,6 +40,7 @@ h3{
     flex-direction: column;
     font-size: smaller;
     width: 35vw;
+    height: fit-content;
     margin: 0.5em;
     padding-top: 2em;
     padding-left: 2em;
@@ -64,9 +62,9 @@ h3{
 }
 
 .description{
-    width: 60vw;
-    padding: 1em;
-    font-size: small;
+    width: 80%;
+    padding: 0.5em;
+    font-size: smaller;
 }
 
 @keyframes shrink{
@@ -83,26 +81,47 @@ h3{
     }
 }
 
-@media screen and (max-width: 615px){
+@media screen and (max-width: 700px){
     .concertContainer{
         display: flex;
         flex-direction: column;
-        margin-left: auto;
-        margin-right: auto;
+        justify-content: center;
     }
 }
     
-@media screen and (min-width: 700px){
+@media screen and (min-width: 701px){
+    body{
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+
     h1{
+        height: 8vh;
         animation: shrink forwards linear;
         animation-timeline: scroll();
     }
+
     .concertBlock{
         display: flex;
         flex-direction: row;
     }
 
+    .concertContainer:nth-child(odd){
+        box-shadow: 0;
+        transition: box-shadow 1s;
+    }
+
     .concertContainer:nth-child(even){
         margin-left: auto;
+        box-shadow: 0;
+        transition: box-shadow 1s;
+    }
+
+    .concertContainer:hover:nth-child(even){
+        box-shadow: #FF6100 -10px 5px 30px 5px;
+    }
+
+    .concertContainer:hover:nth-child(odd){
+        box-shadow: #FF6100 10px 5px 30px 5px;
     }
 }
