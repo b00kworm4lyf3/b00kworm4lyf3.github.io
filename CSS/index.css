@@ -70,7 +70,7 @@ time{
 .description{
     /* width: 80%; */
     padding: 0.5em;
-    font-size: 0.985vmax;
+    font-size: 1vmax;
 }
 
 @keyframes shrink{
@@ -108,7 +108,7 @@ time{
     }
 
     .concertContainer{
-        width: 60vw;
+        width: 75vw;
     }
 
     .concertBlock{
