@@ -12,38 +12,36 @@ h1{
     top: 0;
     text-align: right;
     margin: 0;
-    font-size: 4vw;
+    font-size: 4vmax;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     text-shadow: #73cbf2 20px 10px 10px;
 }
 
 h2{
-    font-size: 2.5vw;
+    font-size: 2.5vmax;
     text-align: right;
 }
 
 h3{
     text-decoration: double underline #FF6100;
     text-underline-offset: 0.3em;
-    font-size: 1.5vw;
+    font-size: 2vmax;
 }
 
 .concertContainer{
     margin: 0.7em;
     padding: 1em;
     border: 5px dashed #FF6100;
-    width: 60vw;
 }
 
 .infoBlock{
     display: flex;
     flex-direction: column;
-    font-size: smaller;
-    width: 35vw;
+    font-size: 1vmax;
+    width: 40vw;
     height: fit-content;
     margin: 0.5em;
     padding-top: 2em;
-    padding-left: 2em;
     padding-right: 1em;
     box-shadow: #FF6100 1px 2px 1px;
     
@@ -64,7 +62,7 @@ h3{
 .description{
     width: 80%;
     padding: 0.5em;
-    font-size: smaller;
+    font-size: 1vmax;
 }
 
 @keyframes shrink{
@@ -81,7 +79,7 @@ h3{
     }
 }
 
-@media screen and (max-width: 700px){
+@media screen and (max-width: 600px){
     .concertContainer{
         display: flex;
         flex-direction: column;
@@ -89,7 +87,7 @@ h3{
     }
 }
     
-@media screen and (min-width: 701px){
+@media screen and (min-width: 601px){
     body{
         padding-left: 5em;
         padding-right: 5em;
@@ -99,6 +97,10 @@ h3{
         height: 8vh;
         animation: shrink forwards linear;
         animation-timeline: scroll();
+    }
+
+    .concertContainer{
+        width: 60vw;
     }
 
     .concertBlock{
