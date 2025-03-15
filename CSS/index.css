@@ -209,10 +209,10 @@ hr{
     }
 
     .concertContainer:hover:nth-child(odd){
-        box-shadow: #FF6100 -10px 5px 30px 5px;
+        box-shadow: #FF6100 -10px 5px 25px 5px;
     }
 
     .concertContainer:hover:nth-child(even){
-        box-shadow: #FF6100 10px 5px 30px 5px;
+        box-shadow: #FF6100 10px 5px 25px 5px;
     }
 }
