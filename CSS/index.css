@@ -31,6 +31,20 @@ footer{
     padding: 0;
 }
 
+footer > a{
+    position: absolute;
+    bottom: 1em;
+    background: transparent;
+    margin-left: 2em;
+    margin-bottom: 0;
+    font-family: "Orbitron", sans-serif;
+    font-size: 0.85em; 
+}
+
+footer > a:hover{
+    text-shadow:#FF6100 0px 0px 5px;
+}
+
 body {
     color: #F3F1ED;
 }
@@ -231,7 +245,7 @@ hr{
 
 @media screen and (max-width: 600px){
     h1{
-        font-size: 0.9em;
+        font-size: 1em;
     }
     h3{
         font-size: 1em;
