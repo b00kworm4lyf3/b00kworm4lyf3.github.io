@@ -86,6 +86,7 @@ h3{
     position: relative;
     display: inline-block;
     text-align: center;
+    left: 0;
   }
   
   .dropdownContent {
@@ -93,13 +94,14 @@ h3{
     position: absolute;
     background-color: transparent;
     font-size: 0.8em;
+    width: fit-content;
   }
   
-  /* Links inside the dropdown */
   .dropdownContent a {
     color:#F3F1ED;
     padding: 0.2em;
-    padding-left: 1.5em;
+    padding-right: 2em;
+    margin-left: -1em;
     text-decoration: none;
     display: block;
     background-color: transparent;
