@@ -101,7 +101,7 @@ h3{
     color:#F3F1ED;
     padding: 0.2em;
     padding-right: 2em;
-    margin-left: -1em;
+    margin-right: auto;
     text-decoration: none;
     display: block;
     background-color: transparent;
@@ -252,6 +252,9 @@ hr{
         margin-top: 1em;
         padding-left:0.8em;
         font-size: 0.7em;
+    }
+    .dropdown{
+        background-color: black;
     }
     .dropdownContent a{
         padding-left: 1em;
