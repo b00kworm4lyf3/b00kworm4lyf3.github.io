@@ -85,7 +85,7 @@ h3{
     background-color: transparent;
     position: relative;
     display: inline-block;
-    text-align: center;
+    /* text-align: center; */
     left: 0;
   }
   
