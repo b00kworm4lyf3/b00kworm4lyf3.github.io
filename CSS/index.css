@@ -111,7 +111,7 @@ h3{
 .dropdownContent a:hover {
     text-shadow:#73cbf2 0px 0px 5px;
     font-weight: 500;
-    background-color: transparent;
+    /* background-color: transparent; */
 }
   
 .dropdown:hover .dropdownContent {
@@ -253,13 +253,14 @@ hr{
         padding-left:0.8em;
         font-size: 0.7em;
     }
-    .dropdown{
+    /* .dropdown{
         background-color: black;
-    }
+    } */
     .dropdownContent a{
         padding-left: 1em;
         font-size: 0.8em;
         padding-top: 1em;
+        background-color: black;
     }
 }
     
