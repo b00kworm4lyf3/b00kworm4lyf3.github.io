@@ -2,34 +2,43 @@ const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
 
-const storyText = "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to :inserty:, they stared in horror for a few moments, then :insertz:. Bob saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
-const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
-const insertY = ["the soup kitchen", "Disneyland", "the White House"];
-const insertZ = ["spontaneously combusted", "melted into a puddle on the sidewalk", "turned into a slug and crawled away"];
+const storyText = "Under the pale moon on an unnaturally cold, 33.5 degree fahrenheit night, :insertName: ventured into the forbidden grove. Carrying a mysterious :insertItem: weighing 13 pounds, they moved :insertMovement: through the mist. When they reached :insertLocation:, they froze in terror as they witnessed :insertSighting:. Then, without warning, :insertConsequence:. The Elder Fae watched from afar, their glimmering eyes unblinking — for they knew that anyone carrying 13 pounds of :insertItem: should never disturb the fairy rings when the moon is full.";
+const names = ["Thistle Nightshade", "Morrow Duskwing", "Briar Thornheart", "Wisteria Gloomveil", "Hemlock Shadowmoss"];
+const items = ["ancient grimoire", "bag of stolen moonlight", "crystal containing whispered secrets", "bundle of bone flutes", "jar of preserved memories"];
+const adjs = ["silently", "clumsily", "gracefully", "frantically", "cautiously"];
+const locs = ["the ancient fairy circle", "the weeping willow throne", "the glass mushroom field", "the bone flower garden", "the midnight spring"];
+const sights = ["a circle of fairies drinking from a human skull", "tiny winged creatures stitching a cloak of human hair", "fairies extracting teeth from a sleeping fox", "a fairy queen consuming a butterfly's dreams", "diminutive shadows dancing with their own severed wings"];
+const cons = ["their shadow was stolen and replaced with something ancient and hungry", "their reflection now shows tiny fairies living behind their eyes", "their laughter became the sound of breaking glass", "their tears turned to thorns that grew beneath their skin", "their heartbeat synchronized with the pulsing of the fairy lights"];
 
 randomize.addEventListener('click', result);
 
 function result() {
-    let xItem = randomValueFromArray(insertX);
-    let yItem = randomValueFromArray(insertY);
-    let zItem = randomValueFromArray(insertZ);
+    let name = randomValueFromArray(names);
+    let item = randomValueFromArray(items);
+    let move = randomValueFromArray(adjs);
+    let loc = randomValueFromArray(locs);
+    let sight = randomValueFromArray(sights);
+    let con = randomValueFromArray(cons);
 
-    let newStory = storyText.replace(/:insertx:/g, xItem);
-    newStory = newStory.replace(/:inserty:/g, yItem);
-    newStory = newStory.replace(/:insertz:/g, zItem);
+    let newStory = storyText.replace(/:insertItem:/g, item);
+    newStory = newStory.replace(/:insertMovement:/g, move);
+    newStory = newStory.replace(/:insertLocation:/g, loc);
+    newStory = newStory.replace(/:insertSighting:/g, sight);
+    newStory = newStory.replace(/:insertConsequence:/g, con);
 
     if(customName.value !== '') {
-        let name = customName.value;
+        name = customName.value;
         name = name.charAt(0).toUpperCase() + name.slice(1);
-        newStory = newStory.replace("Bob", name);
     }
     
+    newStory = newStory.replace(/:insertName:/g, name);
+    
     if(document.getElementById("uk").checked) {
-        const weight = Math.round(300/14) + ' stone';
-        const temperature =  Math.round((94 - 32) * 5/9) + ' centigrade';
+        const weight = Math.round(13/2.205) + ' kilograms';
+        const temperature =  Math.round((33.5 - 32) * 5/9) + ' degree centigrade';
         
-        newStory = newStory.replace("300", weight);
-        newStory = newStory.replace("94", temperature);
+        newStory = newStory.replaceAll("13 pounds", weight);
+        newStory = newStory.replace("33.5 degree fahrenheit", temperature);
     }
 
     story.textContent = newStory;
