@@ -1,8 +1,40 @@
-button{
+*{
+    background-color: #151515;
+}
+
+body{
+    text-align: center;
+}
+
+h1{
+    color: cyan;
+    font-style: oblique;
+    padding-top: 25vh;
+    /* text-align: center; */
+}
+
+p{
+    font-size: 1.1em;
+    color: cyan;
+    text-align: center;
+    margin-top: 40vh;
+    margin-bottom: 0.5em;
+}
+
+#runButton{
     position: absolute;
     /* height: 50px;
     width: 200px; */
     background-color: black;
     color: aqua;
     border-radius: 15px;
+}
+
+#colorButton{
+    font-size: 1.1em;
+    height: 50px;
+    width: 200px;
+    background-color: black;
+    color: aqua;
+    border-radius: 25px;
 }
