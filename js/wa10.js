@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', stars);
+
 const customName = document.getElementById('customname');
 const randomize = document.querySelector('.randomize');
 const story = document.querySelector('.story');
@@ -48,4 +50,28 @@ function result() {
 function randomValueFromArray(array){
   const random = Math.floor(Math.random()*array.length);
   return array[random];
+}
+
+function stars(){
+    const body = document.body;
+    const starCount = 100;
+    
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'twinkle';
+        
+        // Random position
+        star.style.left = `${Math.random() * 100}%`;
+        star.style.top = `${Math.random() * 100}%`;
+        
+        // Random size (some slightly larger)
+        const size = Math.random() < 0.8 ? '2px' : '3px';
+        star.style.width = size;
+        star.style.height = size;
+        
+        // Random delay for animation
+        star.style.animationDelay = `${Math.random() * 5}s`;
+        
+        body.appendChild(star);
+    }
 }

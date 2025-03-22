@@ -1,24 +1,199 @@
+*{
+    font-family: 'Georgia', serif;
+}
+
+h1{
+    color: #c3ebff;
+    text-shadow: 0 0 15px #815cbd;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    /* position: relative; */
+    z-index: 1;
+}
+
 body {
-    font-family: helvetica, sans-serif;
-    width: 350px;
+    background-color: #190f3d;
+    color: #c3ebff;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* static stars in the background */
+body:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    box-shadow: 
+        874px 694px #fff, 1683px 1696px #fff, 602px 1716px #fff,
+        429px 187px #fff, 1630px 217px #fff, 1615px 993px #fff,
+        1297px 1638px #fff, 157px 99px #fff, 1247px 1231px #fff,
+        719px 298px #fff, 1016px 1196px #fff, 374px 1870px #fff,
+        1728px 1328px #fff, 1726px 174px #fff, 1210px 1124px #fff,
+        1650px 1302px #fff, 1330px 203px #fff, 1757px 1562px #fff,
+        1523px 878px #fff, 215px 132px #fff, 880px 350px #fff;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.storyGenerator {
+    text-align: center;
+    background-color: rgba(25, 39, 65, 0.8);
+    border: 2px solid #4148a5;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #4148a5, 0 0 40px #2b1447;
+    padding: 30px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 label {
     font-weight: bold;
+    color: #c3ebff;
+    margin-right: 10px;
+    font-size: 1.1em;
+    text-shadow: 0 0 10px #4148a5;
 }
 
 div {
-    padding-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 input[type="text"] {
-    padding: 5px;
-    width: 150px;
+    background-color: #2c2c44;
+    border: 1px solid #4148a5;
+    border-radius: 5px;
+    color: #c3ebff;
+    padding: 8px;
+    width: 200px;
 }
 
-p {
+input[type = "radio"]{
+    accent-color: #4148a5;
+}
+
+.randomize{
+    background-color: #2f1a69;
+    color: #c3ebff;
+    border: none;
+    border-radius: 15px;
+    padding: 12px 24px;
+    font-size: 1.1em;
+    margin-top: 15px;
+    transition: all 0.3s;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 0 15px #4148a5;
+}
+
+.randomize:hover{
+    background-color: #5e2d99;
+    box-shadow: 0 0 20px #8a5cbd;
+}
+
+.story{
+    width: 80%;
+    background: rgba(25, 39, 65, 0.8);
+    color: #c3ebff;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px auto;
+    line-height: 1.6;
+    font-size: 1.1em;
+    border: 1px solid #4148a5;
+    box-shadow: 0 0 20px #4148a5, 0 0 40px #2b1447;
+    position: relative;
+    max-width: 700px;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.story::before {
+    content: "✧";
+    position: absolute;
+    top: 3px;
+    left: 8px;
+    color: #a08dd8;
+    font-size: 1.5em;
+}
+
+.story::after {
+    content: "✧";
+    position: absolute;
+    bottom: 3px;
+    right: 10px;
+    color: #a08dd8;
+    font-size: 2em;
+}
+
+.moon {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    width: 90px;
+    height: 90px;
+    background-color: #fff7cf;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #f0ecd8;
+    opacity: 0.7;
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px #646bca, 0 0 20px #4148a5;
+    }
+    50% {
+        box-shadow: 0 0 15px #4148a5, 0 0 30px #646bca;
+    }
+    100% {
+        box-shadow: 0 0 10px #646bca, 0 0 20px #4148a5;
+    }
+}
+
+.randomize {
+    animation: glow 4s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+.twinkle {
+    position: absolute;
+    background-color: #fff7cf;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+}
+
+.twinkle:nth-child(odd) {
+    animation: twinkle 2s infinite ease-in-out;
+}
+
+.twinkle:nth-child(even) {
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+/* p {
+    width: 50vw;
     background: #ffc125;
     color: #5e2612;
     padding: 10px;
     visibility: hidden;
-}
+    margin-left: auto;
+    margin-right: auto;
+} */
