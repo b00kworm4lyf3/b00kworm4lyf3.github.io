@@ -1,11 +1,11 @@
 import * as THREE from "/node_modules/three/build/three.module.js";
-import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
-import { CopyShader } from 'three/addons/shaders/CopyShader.js';
-import { LineSegmentsGeometry } from 'three/addons/lines/LineSegmentsGeometry.js';
-import { LineSegments2 } from 'three/addons/lines/LineSegments2.js';
-import { LineMaterial } from 'three/addons/lines/LineMaterial.js';
+import { EffectComposer } from '/node_modulesthree/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from '/node_modulesthree/addons/postprocessing/RenderPass.js';
+import { ShaderPass } from '/node_modulesthree/addons/postprocessing/ShaderPass.js';
+import { CopyShader } from '/node_modulesthree/addons/shaders/CopyShader.js';
+import { LineSegmentsGeometry } from '/node_modulesthree/addons/lines/LineSegmentsGeometry.js';
+import { LineSegments2 } from '/node_modulesthree/addons/lines/LineSegments2.js';
+import { LineMaterial } from '/node_modulesthree/addons/lines/LineMaterial.js';
 
 // Configuration
 const Config = {
