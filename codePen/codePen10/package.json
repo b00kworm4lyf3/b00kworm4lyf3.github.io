@@ -5,9 +5,17 @@
   "devDependencies": {
     "vite": "^6.2.3"
   },
-"scripts": {
-  "dev": "vite",
-  "build": "vite build",
-  "preview": "vite preview"
-}
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "name": "codepen10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "codePen10.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
 }
