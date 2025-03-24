@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from "/node_modules/three/build/three.module.js";
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
