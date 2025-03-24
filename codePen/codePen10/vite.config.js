@@ -1,3 +1,3 @@
 export default {
-    base: '/your-repo-name/'
+    base: '/codePen/codePen10/dist/'
   }
