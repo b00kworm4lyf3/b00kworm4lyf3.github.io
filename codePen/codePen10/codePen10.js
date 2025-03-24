@@ -1,11 +1,11 @@
 import * as THREE from "/node_modules/three/build/three.module.js";
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
-import { CopyShader } from 'three/examples/jsm/shaders/CopyShader.js';
-import { LineSegmentsGeometry } from 'three/examples/jsm/lines/LineSegmentsGeometry.js';
-import { LineSegments2 } from 'three/examples/jsm/lines/LineSegments2.js';
-import { LineMaterial } from 'three/examples/jsm/lines/LineMaterial.js';
+import { EffectComposer } from '/node_modules/three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from '/node_modules/three/examples/jsm/postprocessing/RenderPass.js';
+import { ShaderPass } from '/node_modules/three/examples/jsm/postprocessing/ShaderPass.js';
+import { CopyShader } from '/node_modules/three/examples/jsm/shaders/CopyShader.js';
+import { LineSegmentsGeometry } from '/node_modules/three/examples/jsm/lines/LineSegmentsGeometry.js';
+import { LineSegments2 } from '/node_modules/three/examples/jsm/lines/LineSegments2.js';
+import { LineMaterial } from '/node_modules/three/examples/jsm/lines/LineMaterial.js';
 
 // Configuration
 const Config = {
