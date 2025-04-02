@@ -1,14 +1,27 @@
 h1 {
-  font-family: helvetica, arial, sans-serif;
+  color: white;
+  font-family: "Neonderthaw", cursive;
   text-align: center;
+  font-weight: 600;
+  font-size: 4em;
+  text-shadow: 0px 0px 5px white, 
+               0px 0px 15px white, 
+               0px 0px 25px lightpink, 
+               0px 0px 50px hotpink,
+               0px 0px 60px hotpink,
+               0px 0px 75px hotpink,
+               0px 0px 100px hotpink,
+               0px 0px 150px hotpink;
 }
 
 body {
+  background-color: black;
   width: 640px;
   margin: 0 auto;
 }
 
 .full-img {
+  /* border-radius: 5px; */
   position: relative;
   display: block;
   width: 640px;
@@ -16,11 +29,16 @@ body {
 }
 
 .overlay {
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px white, 
+              0px 0px 15px lightpink, 
+              0px 0px 25px hotpink;
   position: absolute;
   top: 0;
   left: 0;
-  width: 640px;
-  height: 480px;
+  width: 639px;
+  height: 479px;
   background-color: rgba(0,0,0,0);
 }
 
