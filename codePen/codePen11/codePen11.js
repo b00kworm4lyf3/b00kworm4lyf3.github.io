@@ -1,9 +1,18 @@
 import { VFX } from "https://esm.sh/@vfx-js/core";
+const btn = document.querySelector(".change");
+let vfxType = "sinewave";
+let vfxTypes = ["sinewave", "glitch", "rgbShift"];
+let count = 0;
+
+btn.addEventListener("click", function(){
+    count++;
+    vfxType = vfxTypes[count % vfxTypes.length];
+})
 class ButtonEffect {
   constructor(button) {
-    this.vfx = this.vfx = new VFX();
+    this.vfx = new VFX();
     button.addEventListener("mouseenter", (e) => {
-      this.vfx.add(button, { shader: "glitch", overflow: 100 });
+      this.vfx.add(button, { shader: vfxType, overflow: 100 });
     });
 
     button.addEventListener("mouseleave", (e) => {
@@ -13,5 +22,5 @@ class ButtonEffect {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  new ButtonEffect(document.querySelector("button"));
+  new ButtonEffect(document.querySelector(".hover"));
 });
