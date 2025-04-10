@@ -84,7 +84,6 @@ function getColorBrightness(hexColor) {
     const g = parseInt(hexColor.substr(2, 4), 16);
     const b = parseInt(hexColor.substr(4, 6), 16);
     
-    // Calculate perceived brightness using the formula: (R*299 + G*587 + B*114) / 1000
     return ((r * 299) + (g * 587) + (b * 114)) / 1000000;
 }
 
