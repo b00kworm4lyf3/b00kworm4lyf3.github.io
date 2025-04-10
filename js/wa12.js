@@ -100,6 +100,10 @@ function updateUIColors(hex){
     quotes.style.backgroundColor = `#${hex}` + "65";
     document.querySelector("#js-quote-text").style.color = textColor;
     controls.style.backgroundColor = `#${hex}` + "95";
+    document.querySelector("footer").style.color = textColor;
+    document.querySelectorAll("a").forEach((e) => {
+        e.style.color = textColor;
+    });
 
     btn.style.backgroundColor = `#${hex}`;
     btn.style.color = textColor;
