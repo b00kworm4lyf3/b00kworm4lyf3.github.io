@@ -141,7 +141,7 @@ const theLastExperience = noWorkers => {
 			}
 		}
 		update() {
-			if (++this.frame % Math.round(20 / ts) === 0) this.dir = -this.dir;
+			if (++this.frame % Math.round(100 / ts) === 0) this.dir = -this.dir; //updated from 20 to 100 in math.round, slower anim speed
 			if (this === pointer.dancerDrag && this.size < 16 && this.frame > 600) {
 				pointer.dancerDrag = null;
 				dancers.push(
@@ -389,8 +389,8 @@ const theLastExperience = noWorkers => {
 		for (let i = 0; i < 6; i++) {
 			dancers.push(
 				new Robot(
-					i * 360 / 7,
-					80,
+					i * 360 / 6, //updated from 7 to 6, more vibrant blue and purple
+					30, //updated from 80 to 30, darker front pieces of the robots
 					Math.sqrt(Math.min(canvas.width, canvas.height)) / 6,
 					(i + 2) * canvas.width / 9,
 					canvas.height * 0.5 - 100,
