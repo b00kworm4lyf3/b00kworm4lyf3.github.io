@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePen 13 - Swim? - SVG Filter [Editable]</title>
+    <link rel="stylesheet" href="codePen13.css">
+</head>
+<body>
+    <!-- Change text here or edit directly on result -->
+    <div class="text" contenteditable="true">Swim?</div>
+
+    <svg id="svg" width="0" height="0" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <filter id="f1">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="turbulence" />
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="50" xChannelSelector="R" yChannelSelector="G" />
+                <feDropShadow dx="0" dy="0" stdDeviation="10" flood-color="#FFF" flood-opacity="0.2" />
+                <feDropShadow dx="2" dy="2" stdDeviation="1" flood-color="#ff00ff" flood-opacity="1" />
+                <feDropShadow dx="-2" dy="-2" stdDeviation="1" flood-color="#ff00ff" flood-opacity="0.5" />
+            </filter>
+            <filter id="f2">
+                <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="1" result="turbulence" />
+                <feDisplacementMap in2="turbulence" in="SourceGraphic" scale="10" xChannelSelector="R" yChannelSelector="G" />
+                <feDropShadow dx="-2" dy="-2" stdDeviation="10" flood-color="#000" flood-opacity="0.5" />
+            </filter>
+
+        </defs>
+    </svg>
+</body>
+</html>
