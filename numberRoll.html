@@ -1,13 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number Roll - Final Project</title>
-    <link rel="stylesheet" href="CSS/numberRoll.css">
-    <script type="module" src="js/numberRoll.js"></script>
+  <title>Retro Ball Maze Phone Number Entry</title>
+  <link rel="stylesheet" href="CSS/numberRoll.css">
+  <script type="module" src="js/numberRoll.js"></script>
 </head>
 <body>
+  <div class="container">
+    <h1>☎️ SUPER FUN PHONE NUMBER ENTRY! ☎️</h1>
+    <div class="subtitle">~*~*~ Tilt to roll the ball and collect digits! ~*~*~</div>
     
+    <div class="instructions">
+      <p><b>HOW TO PLAY:</b></p>
+      <ol>
+        <li>Desktop: Use the PINK JOYSTICK below to tilt the maze</li>
+        <li>Mobile: TILT your device to move the ball!</li>
+        <li>Roll the RED BALL into the NUMBERED HOLES</li>
+        <li>Navigate around the OBSTACLES</li>
+        <li>Complete your phone number (10 digits)</li>
+        <li>Have FUN!!! <span class="blink">★</span></li>
+      </ol>
+    </div>
+    
+    <div class="phone-number" id="phoneDisplay">Enter your number...</div>
+    
+    <div class="maze-container">
+      <div class="maze-inner" id="mazeInner">
+        <div class="ball" id="ball"></div>
+        <!-- Holes and obstacles will be added with JavaScript -->
+      </div>
+    </div>
+    
+    <div class="device-motion-notice">
+      <p><b>✨ TILT your device to move the ball! ✨</b></p>
+      <button id="enableMotion">Enable Motion Controls</button>
+    </div>
+    
+    <div class="joystick-container" id="joystickContainer">
+      <div class="joystick-base"></div>
+      <div class="joystick-handle" id="joystickHandle"></div>
+    </div>
+    
+    <button id="resetBtn">RESET GAME</button>
+    <button id="deleteBtn">DELETE LAST DIGIT</button>
+    
+    <div class="marquee">
+      <p>★★★ THE MOST ANNOYING YET SURPRISINGLY SATISFYING WAY TO ENTER YOUR PHONE NUMBER! ★★★ COLLECT ALL 10 DIGITS TO WIN! ★★★ BEST VIEWED WITH NETSCAPE NAVIGATOR 4.0 OR HIGHER! ★★★</p>
+    </div>
+    
+    <div class="footer">
+      © 2025 Retro Maze Phone Entry | This page is optimized for 800x600 resolution | <span class="blink">UNDER CONSTRUCTION</span>
+    </div>
+  </div>
 </body>
 </html>
