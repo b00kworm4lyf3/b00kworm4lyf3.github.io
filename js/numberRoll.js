@@ -13,8 +13,8 @@ let collectedHoles = [];
     
 let rotationX = 0;
 let rotationY = 0;
-let ballX = 50;
-let ballY = 50;
+let ballX = 20;
+let ballY = 20;
 let velocityX = 0;
 let velocityY = 0;
 let isMobile = window.innerWidth <= 768;
@@ -174,10 +174,10 @@ enableMotionBtn.addEventListener('click', function(){
       rotationY = Math.min(Math.max(gamma, -15), 15);
       
       mazeInner.style.transform = `rotateY(${rotationY}deg) rotateX(${-rotationX}deg)`;
-    }
+}
     
-    // Ball physics
-    function updateBall(timestamp) {
+// Ball physics
+function updateBall(timestamp){
       if (!lastTimestamp) {
         lastTimestamp = timestamp;
       }
@@ -279,7 +279,7 @@ enableMotionBtn.addEventListener('click', function(){
       
       // Check hole collisions
       holePositions.forEach((hole, index) => {
-        if (collectedHoles.includes(index)) return;
+        // if (collectedHoles.includes(index)) return;
         
         const holeX = parseInt(hole.x);
         const holeY = parseInt(hole.y);
@@ -294,8 +294,8 @@ enableMotionBtn.addEventListener('click', function(){
           collectDigit(index, hole.num);
           
           // Reset ball position
-          newX = 50;
-          newY = 50;
+          newX = 20;
+          newY = 20;
           velocityX = 0;
           velocityY = 0;
         }
@@ -371,8 +371,8 @@ enableMotionBtn.addEventListener('click', function(){
     resetBtn.addEventListener('click', function() {
       phoneNumber = '';
       phoneDisplay.innerText = 'Enter your number...';
-      ballX = 50;
-      ballY = 50;
+      ballX = 20;
+      ballY = 20;
       velocityX = 0;
       velocityY = 0;
       ball.style.left = ballX + 'px';
