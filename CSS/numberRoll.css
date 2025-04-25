@@ -226,7 +226,7 @@ button:active{
 }
   
 /* For devices with device orientation */
-@media(max-width: 2700px){
+@media screen and (max-width: 1000px){
     .joystick-container{
       display: none;
     }
