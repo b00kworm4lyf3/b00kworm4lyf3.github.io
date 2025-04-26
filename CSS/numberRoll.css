@@ -1,11 +1,15 @@
+*{
+    cursor: url(../img/cursor.png), auto;
+}
+
 body{
     margin: 0;
     padding: 20px;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-family: "Comic Sans MS", "Comic Sans", sans-serif;
     background-color: #9999FF;
-    color: #000066;
+    /* color: #000066; */
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="50" height="50" x="0" y="0" fill="%239999FF"/><rect width="50" height="50" x="50" y="50" fill="%239999FF"/><rect width="50" height="50" x="50" y="0" fill="%23AAAAFF"/><rect width="50" height="50" x="0" y="50" fill="%23AAAAFF"/></svg>');
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
   
 .container{
@@ -21,7 +25,7 @@ body{
 h1{
     color: #FF00FF;
     text-shadow: 2px 2px 0 #FFFF00;
-    font-size: 28px;
+    font-size: 1.75em;
     margin-bottom: 5px;
 }
   
@@ -34,7 +38,7 @@ h1{
 .maze-container{
     position: relative;
     width: 100%;
-    height: 300px;
+    height: 350px;
     background-color: #006666;
     border: 4px solid #00CC99;
     border-radius: 10px;
@@ -104,7 +108,7 @@ h1{
     background-color: #FFFF99;
     border: 2px dashed #FF9900;
     padding: 10px;
-    font-size: 14px;
+    font-size: 0.85em;
     margin-bottom: 20px;
     text-align: left;
 }
@@ -123,8 +127,8 @@ button{
     color: #FFFFFF;
     font-weight: bold;
     padding: 8px 16px;
-    cursor: pointer;
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    cursor: url(../img/pointer.png), pointer;
+    font-family: "Comic Sans MS", "Comic Sans", sans-serif;
     margin: 5px;
     box-shadow: 3px 3px 0 #660033;
 }
