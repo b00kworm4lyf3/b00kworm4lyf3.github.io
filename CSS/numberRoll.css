@@ -121,7 +121,7 @@ h1{
     50%{opacity: 0;}
 }
   
-button{
+/* button{
     background: linear-gradient(to bottom, #FF9900, #FF6600);
     border: 3px outset #FF9900;
     color: #FFFFFF;
@@ -131,12 +131,12 @@ button{
     font-family: "Comic Sans MS", "Comic Sans", sans-serif;
     margin: 5px;
     box-shadow: 3px 3px 0 #660033;
-}
+} */
   
-button:active{
+/* button:active{
     border-style: inset;
     transform: translate(1px, 1px);
-}
+} */
   
 .footer{
     margin-top: 20px;
@@ -220,6 +220,14 @@ button:active{
     cursor: grabbing;
     animation: none;
 }
+
+/* Add these styles to your existing CSS file */
+
+.reset-hole, .delete-hole {
+    width: 60px;
+    height: 60px;
+}
+  
   
 .device-motion-notice{
     background-color: #FFCCFF;

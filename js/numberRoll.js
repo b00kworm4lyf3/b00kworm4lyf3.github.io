@@ -21,16 +21,27 @@ let usingDeviceMotion = false;
 let lastTimestamp = 0;
 let deltaTime = 0;
 
-const holePositions = [{x: 100, y: 60, num: 1},
-                       {x: 250, y: 20, num: 2},
-                       {x: 350, y: 80, num: 3},
-                       {x: 500, y: 50, num: 4},
-                       {x: 180, y: 120, num: 5},
-                       {x: 650, y: 160, num: 6},
-                       {x: 570, y: 280, num: 7},
-                       {x: 120, y: 240, num: 8},
-                       {x: 370, y: 180, num: 9},
-                       {x: 620, y: 50, num: 0}];
+const HOLE_TYPE = {
+  NUMBER: 'number',
+  RESET: 'reset',
+  DELETE: 'delete'
+};
+
+const holePositions = [
+  {x: 100, y: 60, num: 1, type: HOLE_TYPE.NUMBER},
+  {x: 250, y: 20, num: 2, type: HOLE_TYPE.NUMBER},
+  {x: 350, y: 80, num: 3, type: HOLE_TYPE.NUMBER},
+  {x: 500, y: 50, num: 4, type: HOLE_TYPE.NUMBER},
+  {x: 180, y: 120, num: 5, type: HOLE_TYPE.NUMBER},
+  {x: 650, y: 160, num: 6, type: HOLE_TYPE.NUMBER},
+  {x: 570, y: 280, num: 7, type: HOLE_TYPE.NUMBER},
+  {x: 120, y: 240, num: 8, type: HOLE_TYPE.NUMBER},
+  {x: 370, y: 180, num: 9, type: HOLE_TYPE.NUMBER},
+  {x: 620, y: 50, num: 0, type: HOLE_TYPE.NUMBER},
+  //reset and delete holes
+  {x: 730, y: 280, num: 'Reset', type: HOLE_TYPE.RESET},
+  {x: 730, y: 5, num: 'Delete', type: HOLE_TYPE.DELETE}
+];
 
 const walls = [{x: 150, y: 40, width: 20, height: 190},
                {x: 325, y: 40, width: 20, height: 200},
@@ -46,7 +57,17 @@ const walls = [{x: 150, y: 40, width: 20, height: 190},
 holePositions.forEach(pos => {
   const hole = document.createElement('div');
   hole.className = 'hole';
-  hole.innerText = pos.num;
+
+  if (pos.type === HOLE_TYPE.RESET) {
+    hole.className = 'hole reset-hole';
+    hole.innerHTML = pos.num;
+  } else if (pos.type === HOLE_TYPE.DELETE) {
+    hole.className = 'hole delete-hole';
+    hole.innerHTML = pos.num;
+  } else {
+    hole.innerText = pos.num;
+  }
+
   hole.style.left = pos.x + 'px';
   hole.style.top = pos.y + 'px';
   hole.dataset.number = pos.num;
@@ -287,14 +308,33 @@ function updateBall(timestamp){
     const dy = ballCenterY - (holeY + 20);
     const distance = Math.sqrt(dx * dx + dy * dy);
         
-    if(distance < 20){ //if ball is close enough to hole
-      collectDigit(index, hole.num);
+    if(distance < 30){ //if ball is close enough to hole
+      if(hole.type === HOLE_TYPE.RESET){
+        reset();
+      } 
+      else if(hole.type === HOLE_TYPE.DELETE){
+        deleteLast();
+      } 
+      else{
+        collectDigit(index, hole.num);
+      }
           
       //reset ball
       newX = 20;
       newY = 20;
       velocityX = 0;
       velocityY = 0;
+
+      //change numbers
+      if(hole.type === HOLE_TYPE.NUMBER){
+        holePositions.forEach((pos, idx) => {
+          if(pos.type === HOLE_TYPE.NUMBER){
+            pos.num = (pos.num + 3) % 10;
+            const holeElement = document.querySelectorAll('.hole:not(.reset-hole):not(.delete-hole)')[idx];
+            holeElement.innerText = pos.num;
+          }
+        });
+      }
     }
   });
       
@@ -357,11 +397,14 @@ function collectDigit(holeIndex, digit){
   if(phoneNumber.length === 10){
     setTimeout(() => {
       alert('Congratulations! You completed your phone number: ' + formattedNumber);
+      reset();
     }, 500);
   }
 }
     
-resetBtn.addEventListener('click', function() {
+// resetBtn.addEventListener('click', reset);
+
+function reset(){
   phoneNumber = '';
   phoneDisplay.innerText = 'Enter your number...';
   ballX = 20;
@@ -377,9 +420,10 @@ resetBtn.addEventListener('click', function() {
     }
   });
   collectedHoles = [];
-});
+}
     
-deleteBtn.addEventListener('click', function() {
+// deleteBtn.addEventListener('click', deleteLast);
+function deleteLast(){
   if (phoneNumber.length > 0) {
     phoneNumber = phoneNumber.slice(0, -1);
         
@@ -395,6 +439,6 @@ deleteBtn.addEventListener('click', function() {
       document.querySelectorAll('.hole')[lastIndex].style.backgroundColor = '#000033';
     }
   }
-});
+}
     
 requestAnimationFrame(updateBall);
