@@ -1,0 +1,56 @@
+---
+// BaseLayout.astro — wraps every page
+import { ClientRouter } from 'astro:transitions';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;         // Cloudinary URL for social sharing
+}
+
+const {
+  title,
+  description = 'Portfolio of Sage — technical artist, shader developer, creative technologist.',
+  ogImage,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Favicon — put your own in /public -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Smooth page transitions -->
+    <ClientRouter />
+  </head>
+
+  <body>
+    <Nav />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

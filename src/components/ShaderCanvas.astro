@@ -1,0 +1,129 @@
+---
+// ShaderCanvas.astro
+// Renders a canvas and mounts a WebGL/Three.js sketch from a script module.
+// Usage:
+//   <ShaderCanvas scriptPath="/shaders/coralReef.js" height="400px" />
+//
+// The script at `scriptPath` should export a default function:
+//   export default function mount(canvas: HTMLCanvasElement) { ... }
+// and optionally export a cleanup function returned from mount:
+//   return () => { /* cleanup */ }
+
+interface Props {
+  scriptPath: string;   // path relative to /public, e.g. "/shaders/coralReef.js"
+  height?: string;      // CSS height value, default "400px"
+  class?: string;       // extra classes for the wrapper
+  label?: string;       // accessible label for the canvas
+}
+
+const {
+  scriptPath,
+  height = '400px',
+  class: className = '',
+  label = 'Interactive shader display',
+} = Astro.props;
+
+// Generate a unique ID so multiple canvases on one page don't collide
+const canvasId = `shader-canvas-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<div class:list={['shader-canvas-wrapper', className]}>
+  <canvas
+    id={canvasId}
+    aria-label={label}
+    style={`height: ${height};`}
+  ></canvas>
+  <div class="shader-canvas-loading" aria-hidden="true">
+    <span class="shader-canvas-dot"></span>
+    <span class="shader-canvas-dot"></span>
+    <span class="shader-canvas-dot"></span>
+  </div>
+</div>
+
+<script define:vars={{ canvasId, scriptPath }}>
+  (async () => {
+    const wrapper = document.getElementById(canvasId)?.parentElement;
+    const canvas  = document.getElementById(canvasId);
+    if (!canvas || !wrapper) return;
+
+    try {
+      const mod = await import(/* @vite-ignore */ scriptPath);
+      const mount = mod.default;
+      if (typeof mount !== 'function') {
+        console.warn(`ShaderCanvas: ${scriptPath} must export a default function`);
+        return;
+      }
+
+      wrapper.classList.add('loaded');
+      const cleanup = mount(canvas);
+
+      // Clean up when Astro navigates away (View Transitions)
+      document.addEventListener('astro:before-swap', () => {
+        if (typeof cleanup === 'function') cleanup();
+      }, { once: true });
+
+    } catch (err) {
+      console.error(`ShaderCanvas: failed to load ${scriptPath}`, err);
+      wrapper.classList.add('error');
+    }
+  })();
+</script>
+
+<style>
+  .shader-canvas-wrapper {
+    position: relative;
+    width: 100%;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  canvas {
+    width: 100%;
+    display: block;
+    border-radius: 0; /* inherits from wrapper */
+    transition: opacity var(--transition-slow);
+    opacity: 0;
+  }
+
+  .loaded canvas { opacity: 1; }
+
+  /* Loading dots */
+  .shader-canvas-loading {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: opacity var(--transition-slow);
+  }
+
+  .loaded .shader-canvas-loading { opacity: 0; pointer-events: none; }
+
+  .shader-canvas-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green-primary);
+    animation: pulse 1.2s ease-in-out infinite;
+  }
+
+  .shader-canvas-dot:nth-child(2) { animation-delay: 0.2s; }
+  .shader-canvas-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50%       { opacity: 1;   transform: scale(1.2); }
+  }
+
+  .error canvas { display: none; }
+  .error .shader-canvas-loading::after {
+    content: 'shader failed to load';
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  .error .shader-canvas-dot { display: none; }
+</style>

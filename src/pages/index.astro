@@ -1,11 +1,57 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import '../styles/global.css';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Home — Sage Brielle">
+  <section class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Technical Artist & Creative Technologist</p>
+      <h1>
+        Hi, I'm <span class="gradient-text">Sage</span>
+      </h1>
+      <p class="hero-description">
+        I make shaders, interactive experiences, and things that live between art and code.
+      </p>
+      <div class="hero-links">
+        <a href="/work" class="btn-primary">View Work</a>
+        <a href="/about" class="btn-ghost">About Me</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero {
+    min-height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-2xl);
+  }
+
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--green-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  h1 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-description {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    max-width: 520px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-links {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+</style>
