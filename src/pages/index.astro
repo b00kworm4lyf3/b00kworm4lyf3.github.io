@@ -1,156 +1,56 @@
 ---
-// import Welcome from '../components/Welcome.astro';
-// import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 ---
-<header>
-		<a href = "/">Sage Brielle</a>
-		<nav>
-			<a>Blog</a>
-			<a>Work</a>
-			<a>About</a>
-		</nav>
-</header>
-<main>
-	<p class = 'eyebrow'>C:\Users\b00kworm4lyfe&gt;</p>
-	<h1>Hi, I'm Sage!</h1>
-	<h2>Technical Artist and Creative Technologist</h2>
-	<a class = 'button1' href="/work">my work</a>
-</main>
-<footer>
-	<p>(c) 2026</p>
-	<a href = "mailto:sage.ebert@colorado.edu">contact me</a>
-</footer>
 
-<style>
-	@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-	@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+<BaseLayout>
+	<section class = 'hero'>
+		<p class = 'eyebrow'>C:\Users\b00kworm4lyfe&gt;</p>
+		<h1>Hi, I'm Sage!</h1>
+		<h2>Technical Artist and Creative Technologist</h2>
+		<a class = 'button1' href="/work">my work</a>
+	</section>
 
-	:root{
-		/*dark mode vars*/
-		--bg-col-dk: #1a1a1a;
-		--txt-col-dk: #e2e8f0;
-
-		/*various greens*/
-		--grn-neon: #39ff14;
-		--grn-light: #00ff80;
-		--grn-lightest: #a7ffd3;
-	}
-	html, body{
-		margin: 0;
-		padding: 0;
-	}
-	body{
-		background-color: var(--bg-col-dk);
-		color: var(--txt-col-dk);
-		font-family: 'Space Grotesk', sans-serif;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-	main{
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding-left: 10em;
-		align-items: flex-start;
-		gap: 0;
-	}
-	h1{
-		background: linear-gradient(150deg, var(--grn-neon), var(--grn-light));
-		-webkit-background-clip: text;
-		background-clip: text;
-
-		color: transparent;
-		font-size: 5em;
-		margin-bottom: 0;
-		margin-top: 0;
-
-		padding-top: 0;
-		padding-left: 0.25em;
-	}
-	h2{
-		margin-top: 0;
-		padding-left: 1em;
-	}
-	.button1{
-		display: inline-block;
-		padding: 0.3em 0.75em;
-		margin-left: 1.5em;
-
-		border-style: double;
-		border-width: 0.25em;
-		border-radius: 15px;
-		border-color: var(--grn-neon);
-
-		background: var(--bg-col-dk);
-		color: var(--txt-col-dk);
-		text-decoration: none;
-
-		transition: background 0.3s ease,
-					color 0.3s ease,
-					box-shadow 0.3s ease;
-	}
-	.button1:hover, .button1:focus{
-		background: var(--grn-neon);
-		color: var(--bg-col-dk);
-		box-shadow: 0 0 10px var(--grn-light);
-	}
-	.eyebrow{
-		font-family: 'Space Mono', monospace;
-		color: var(--grn-lightest);
-		padding-bottom: 0;
-		margin-bottom: 0;
-	}
-	.eyebrow::after{
-		content: '|';
-		animation: blink 1s steps(1) infinite;
-		margin-left: 0.5em;
-	}
-	@keyframes blink{
-		50%{opacity: 0;}
-	}
-
-	header{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0.75rem 1rem;
-		box-shadow: 0 0 10px var(--grn-neon);
-	}
-
-	header > a{
-		text-decoration: none;
-	}
-
-	footer{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		padding: 0 1rem;
-		box-shadow: 0 0 10px var(--grn-neon);
-	}
-
-	p{
-		font-family: 'Space Mono', monospace;
-		color: var(--grn-light);
-	}
-
-	a{
-		font-family: 'Space Mono', monospace;
-		color: var(--grn-light);
-		transition: color 0.2s ease;
-	}
-
-	a:hover, a:focus{
-		color: var(--grn-lightest);
-	}
-
-	nav{
+	<style>
 		
-	}
+		.hero{
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-left: 20%;
+			align-items: flex-start;
+		}
+		.button1{
+			margin-left: 1.5em;
+		}
+		h1{
+			background: linear-gradient(150deg, var(--grn-neon), var(--grn-light));
+			-webkit-background-clip: text;
+			background-clip: text;
 
-</style>
+			color: transparent;
+			font-size: 5em;
+			margin-bottom: 0;
+			margin-top: 0;
+
+			padding-top: 0;
+			padding-left: 0.25em;
+		}
+		h2{
+			margin-top: 0;
+			padding-left: 1em;
+		}
+		.eyebrow{
+			font-family: 'Space Mono', monospace;
+			color: var(--grn-lightest);
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+		.eyebrow::after{
+			content: '|';
+			animation: blink 1s steps(1) infinite;
+			margin-left: 0.5em;
+		}
+	</style>
+</BaseLayout>
