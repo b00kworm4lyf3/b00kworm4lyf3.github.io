@@ -1,4 +1,28 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {getCollection} from 'astro:content';
+
+const projects = await getCollection('work');
+const sorted = projects.toSorted((a, b) => Math.max(...b.data.date.map(d => d.getTime())) - Math.max(...a.data.date.map(d => d.getTime())));
 ---
 
-<h1>MY WORK</h1>
+<BaseLayout title = 'Work'>
+    <h1>MY WORK</h1>
+    <ul>
+        {sorted.map((project) => (<li><a href = {`/work/${project.id}`}>{project.data.title}</a></li>))}
+    </ul>
+
+    <style>
+        h1{
+            font-size: 2rem;
+            margin: 1em;
+        }
+
+        ul{
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3em;
+        }
+    </style>
+</BaseLayout>
